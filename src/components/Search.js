@@ -22,14 +22,17 @@ const Search = (props) => {
     const handleChange = (type, e) => {
         switch (type) {
             case 'COUNTRY':
+                console.log(e)
                 setCountry(e.value)
                 setCountryField(e)
                 break
             case 'STATE':
-                setState(e.value)
+                console.log(e)
+                setState(isNaN(e.value) ? e.value : e.label)
                 setStateField(e)
                 break
             case 'CITY':
+                console.log(e)
                 setCity(e.value)
                 setCityField(e)
                 break
@@ -40,7 +43,9 @@ const Search = (props) => {
         if (!country) {
             return
         }
+        console.log('states of: ', country)
         const states = State.getStatesOfCountry(country)
+        console.log(states)
         setStateChoices(
 					states.map((state) => ({
 						value: state.isoCode,
@@ -73,12 +78,16 @@ const Search = (props) => {
     }, [city])
 
     useEffect(() => {
-        if (searched || !country || !state || !city) {
+        if (searched || !country) {
             setSearched(true)
             return
         } else {
             console.log('running search')
-            search(country, state, city)
+            if (!city) {
+                search(country, null, state)
+            } else {
+                search(country, state, city)
+            }
             setSearched(true)
         }
     }, [searched])
