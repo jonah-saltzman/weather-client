@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+html {
+    background-color: rgba(4, 156, 156, 0.664);
+    color:rgb(32, 32, 34)
+}
 
 .App-logo {
   height: 40vmin;
@@ -11,6 +15,45 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.app-container {
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+
+.app-row {
+    padding: 1rem;
+    border: 1px rgb(195, 102, 40) solid;
+    border-radius: 20px;
+    background: linear-gradient(110deg, rgba(0, 234, 255, 0.534), rgba(0, 255, 179, 0.342));
+}
+
+.weather-container{
+    display: flex;
+    align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.button {
+    color: #282c34;
+}
+
+.country-selector {
+    width: 10rem;
+}
+
+.state-selector {
+    margin-left:0.5rem;
+    width: 11.5rem;
+}
+
+.city-selector {
+    margin-left: 0.5rem;
+    width: 11rem;
 }
 
 .App-header {
